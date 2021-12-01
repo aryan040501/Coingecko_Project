@@ -1,0 +1,21 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+.logo {
+  margin-left: 10px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+}
+
+.menu-items {
+  margin-right: 60px;
+}

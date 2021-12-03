@@ -9,6 +9,7 @@ function Dashboard() {
   const [loading, setLoading] = useState(false);
   const [currPage, setCurrPage] = useState(1);
   const [coinPP] = useState(12);
+  const [q, setQ] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,11 +29,23 @@ function Dashboard() {
 
   const paginate = (pageNumber) => setCurrPage(pageNumber);
 
+  function search(rows) {
+    return rows.filter((row) => row.name.toLowerCase().indexOf(q) > -1);
+  }
+
   console.log(Coins);
   return (
     <div>
       <Navbar />
-      <Coins coins={currCoin} loading={loading} />
+      <input
+        type="text"
+        value={q}
+        placeholder="Enter Coin Name"
+        onChange={(e) => {
+          setQ(e.target.value);
+        }}
+      />
+      <Coins coins={search(currCoin)} loading={loading} />
       <Pagination
         coinPP={coinPP}
         totalCoin={coins.length}
